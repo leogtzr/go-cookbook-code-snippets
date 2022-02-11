@@ -28,6 +28,7 @@ func main() {
 	defer file.Close()
 
 	reader := csv.NewReader(file)
+	reader.Read() // skip the first line...
 	rows, err := reader.ReadAll()
 	if err != nil {
 		log.Fatal("error: cannot read CSV file", err)
